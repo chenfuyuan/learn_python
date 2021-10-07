@@ -22,6 +22,7 @@ class Fib:
             print(dir(n))
             start = n.start;
             stop = n.stop;
+            step = n.step;
             if start is None:
                 start = 0;
 
@@ -30,19 +31,21 @@ class Fib:
 
             for x in range(stop):
                 if start <= x:
-                    result.append(a);
+                    if step and not (x-start)%step == 0:
+                        pass;
+                    else:
+                        result.append(a);
                 a, b = b, a + b;
             return result;
 
 
 
 fib = Fib();
-fib[-1]
+
 
 for i in range(0,11):
     print(fib[i]);
 
 print("=============");
-
-fibSubList = fib[:10];
-print(fibSubList)
+print(fib[:10])
+print(fib[:10:4])
