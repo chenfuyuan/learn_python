@@ -11,6 +11,8 @@ class Chain:
         self.__path = path
 
     def __getattr__(self, path):
+        if path == 'users':
+            return lambda x:Chain("%s/%s"%(self.__path,x))
         return Chain("%s/%s"%(self.__path,path))
 
 
@@ -21,3 +23,4 @@ class Chain:
     __repr__ = __str__
 
 print(Chain().status.user.timeline.list)
+print(Chain().users('michael').repos)
