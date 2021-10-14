@@ -15,6 +15,14 @@ print("================readlines==============")
 for x in f.readlines():
     print(x.strip())
 
+f = open("test.txt",'r')
+print("================while-readline===============")
+while True:
+    s = f.readline()
+    if s =="":
+        break
+    print(s.strip())
+
 print("================readByte================")
 fb = open("test_chinese.txt","rb")
 for x in fb.readlines():
